@@ -1,26 +1,10 @@
-# Ember-cli-deploy-gcloud-storage
+# ember-cli-deploy-gcloud-storage
 
-This README outlines the details of collaborating on this Ember addon.
+An Ember-CLI-Deploy plugin to upload assets to Google Cloud Storage.
 
-## Installation
+## Contributing
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+See [CONTRIBUTING.md].
 
-## Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+[CONTRIBUTING.md]: CONTRIBUTING.md
