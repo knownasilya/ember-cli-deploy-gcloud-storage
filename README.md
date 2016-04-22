@@ -6,6 +6,37 @@ An Ember-CLI-Deploy plugin to upload assets to Google Cloud Storage.
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
+## Quick Start
+
+To get up and running quickly, do the following:
+
+- Ensure [ember-cli-deploy-build] is installed and configured.
+- Install this plugin
+
+```bash
+ember install ember-cli-deploy-gcloud-storage
+```
+
+- Place the following configuration into `config/deploy.js`
+
+```javascript
+ENV['gcloud-storage'] = {
+  credentials: {
+    'private_key': '<your-private-key>',
+    'client_email': '<your-client-email>',
+  },
+  projectId: '<your-gcloud-project-id>',
+  bucket: '<your-storage-bucket>'
+};
+```
+
+- Run the pipeline
+
+```bash
+ember deploy production
+```
+
+
 ## Contributing
 
 See [CONTRIBUTING.md].
@@ -17,4 +48,5 @@ See [CONTRIBUTING.md].
 [travis-badge-url]: https://travis-ci.org/knownasilya/ember-cli-deploy-gcloud-storage
 [ember-observer-badge]: http://emberobserver.com/badges/ember-cli-deploy-gcloud-storage.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-cli-deploy-gcloud-storage
+[ember-cli-deploy-build]: https://github.com/ember-cli-deploy/ember-cli-deploy-build
 [CONTRIBUTING.md]: CONTRIBUTING.md
