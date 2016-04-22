@@ -37,6 +37,12 @@ ENV['gcloud-storage'] = {
 ember deploy production
 ```
 
+## TODO
+
+- [ ] Create bucket if it doesn't exist
+- [ ] Support a manifest file
+- [ ] Add more of the options that the s3 plugin has
+- [ ] Tests
 
 ## Contributing
 
