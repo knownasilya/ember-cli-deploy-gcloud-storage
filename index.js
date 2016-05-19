@@ -24,11 +24,6 @@ module.exports = {
         }
       },
 
-      requiredConfig: [
-        'credentials',
-        'projectId'
-      ],
-
       upload: function(context) {
         var self = this;
         var credentials = this.readConfig('credentials');
@@ -41,16 +36,21 @@ module.exports = {
 
         this.log('uploading..');
 
-        return upload(this, {
-          gcloud: {
-            credentials: credentials,
-            projectId: projectId
-          },
+        var config = {
           bucket: bucket,
           fileBase: context.distDir,
           filePaths: filesToUpload,
           gzippedFilePaths: gzippedFiles
-        })
+        };
+        
+        if ( projectId && credentials ) {
+          config['gcloud'] = {
+            credentials: credentials,
+            projectId: projectId
+          };
+        }
+
+        return upload(this, config)
         .then(function (filesUploaded) {
           self.log('uploaded ' + filesUploaded.length + ' files ok', { verbose: true });
           return { filesUploaded: filesUploaded };
