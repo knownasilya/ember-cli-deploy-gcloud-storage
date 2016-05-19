@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-deploy-gcloud-storage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An Ember-CLI-Deploy plugin to upload assets to Google Cloud Storage",
   "directories": {
     "doc": "doc",
