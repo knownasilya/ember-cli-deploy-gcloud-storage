@@ -50,7 +50,7 @@
     "ember-cli-babel": "^5.1.6",
     "ember-cli-deploy-plugin": "^0.2.6",
     "gcloud": "^0.30.3",
-    "minimatch": "^3.0.0"
+    "minimatch": "^3.0.2"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
