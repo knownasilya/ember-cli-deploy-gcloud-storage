@@ -29,6 +29,7 @@ module.exports = {
         var credentials = this.readConfig('credentials');
         var projectId = this.readConfig('projectId');
         var bucket = this.readConfig('bucket');
+        var bucketFolder = this.readConfig('bucketFolder');
         var distFiles = this.readConfig('distFiles');
         var gzippedFiles = this.readConfig('gzippedFiles');
         var filePattern = this.readConfig('filePattern');
@@ -38,11 +39,12 @@ module.exports = {
 
         var config = {
           bucket: bucket,
+          bucketFolder: bucketFolder,
           fileBase: context.distDir,
           filePaths: filesToUpload,
           gzippedFilePaths: gzippedFiles
         };
-        
+
         if ( projectId && credentials ) {
           config['gcloud'] = {
             credentials: credentials,

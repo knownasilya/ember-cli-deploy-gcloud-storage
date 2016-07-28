@@ -12,8 +12,10 @@ module.exports = function uploadToGCS(plugin, config) {
     var isGzipped = config.gzippedFilePaths.indexOf(filePath) !== -1;
 
     return new Promise(function (resolve, reject) {
+      var destinationFilePath = config.bucketFolder ? path.join(config.bucketFolder,filePath) : filePath;
+
       return bucket.upload(basePath, {
-        destination: filePath,
+        destination: destinationFilePath,
         gzip: !isGzipped
       }, function (err, file) {
         if (err) {
@@ -29,7 +31,7 @@ module.exports = function uploadToGCS(plugin, config) {
             if (err) {
               return reject(err);
             }
-            
+
             plugin.log('✔  ' + filePath, { verbose: true });
             resolve(contents.toString('utf8'));
           });
