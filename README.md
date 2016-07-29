@@ -40,8 +40,8 @@ ember deploy production
 
 ## Configuration
 
-- `credentials` - GCP credentials object, `{ private_key, client_email }`, required (can be set via GCP envs).
-- `projectId` - Your GCP project id, required.
+- `credentials` - GCP credentials object, `{ private_key, client_email }`, required (can be specified with GCP envs/config).
+- `projectId` - Your GCP project id, required (can be specified with GCP envs, `GCLOUD_PROJECT=<projectId> ember deploy`).
 - `bucket` - A bucket in GCS to store your files, required.
 - `bucketFolder` - A folder inside the bucket to place your files, optional.
 - `distFiles` - Files that need to be deployed, defaults to all files in the `dist` directory.
