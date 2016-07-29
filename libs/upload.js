@@ -12,7 +12,7 @@ module.exports = function uploadToGCS(plugin, config) {
     var isGzipped = config.gzippedFilePaths.indexOf(filePath) !== -1;
 
     return new Promise(function (resolve, reject) {
-      var destinationFilePath = config.bucketFolder ? path.join(config.bucketFolder,filePath) : filePath;
+      var destinationFilePath = config.bucketFolder ? path.join(config.bucketFolder, filePath) : filePath;
 
       return bucket.upload(basePath, {
         destination: destinationFilePath,
