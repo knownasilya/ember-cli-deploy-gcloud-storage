@@ -14,9 +14,10 @@ module.exports = function uploadToGCS(plugin, config) {
 
     return new Promise(function (resolve, reject) {
       var destinationFilePath = config.bucketFolder ? path.join(config.bucketFolder, filePath) : filePath;
-
+      var metadata = isGzipped ? {contentEncoding:"gzip"} : {}
       return bucket.upload(basePath, {
         destination: destinationFilePath,
+        metadata:metadata,
         gzip: !isGzipped
       }, function (err, file) {
         if (err) {
