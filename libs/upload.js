@@ -1,6 +1,7 @@
 var path = require('path');
-var gcloud = require('gcloud');
+var gcloud = require('google-cloud');
 var Promise = require('ember-cli/lib/ext/promise');
+
 
 module.exports = function uploadToGCS(plugin, config) {
   var cloud = gcloud(config.gcloud);
@@ -13,9 +14,10 @@ module.exports = function uploadToGCS(plugin, config) {
 
     return new Promise(function (resolve, reject) {
       var destinationFilePath = config.bucketFolder ? path.join(config.bucketFolder, filePath) : filePath;
-
+      var metadata = isGzipped ? {contentEncoding:"gzip"} : {}
       return bucket.upload(basePath, {
         destination: destinationFilePath,
+        metadata:metadata,
         gzip: !isGzipped
       }, function (err, file) {
         if (err) {
