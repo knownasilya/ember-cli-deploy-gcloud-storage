@@ -1,11 +1,10 @@
 var path = require('path');
-var gcloud = require('google-cloud');
+var storage = require('@google-cloud/storage');
 var Promise = require('ember-cli/lib/ext/promise');
 
 
 module.exports = function uploadToGCS(plugin, config) {
-  var cloud = gcloud(config.gcloud);
-  var gcs = cloud.storage();
+  var gcs = storage(config.gcloud);
   var bucket = gcs.bucket(config.bucket);
 
   return Promise.all(config.filePaths.map(function (filePath) {

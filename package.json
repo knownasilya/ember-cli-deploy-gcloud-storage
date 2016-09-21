@@ -47,9 +47,9 @@
     "upload"
   ],
   "dependencies": {
+    "@google-cloud/storage": "^0.1.1",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-deploy-plugin": "^0.2.6",
-    "google-cloud": "^0.38.3",
     "minimatch": "^3.0.2"
   },
   "ember-addon": {
