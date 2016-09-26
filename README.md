@@ -1,6 +1,6 @@
 # ember-cli-deploy-gcloud-storage
 
-An Ember-CLI-Deploy plugin to upload assets to Google Cloud Storage.
+An Ember-CLI-Deploy plugin to upload assets to Google Cloud Storage (can also be used for Firebase).
 
 [![NPM][npm-badge-img]][npm-badge-link]
 [![Build Status][travis-badge]][travis-badge-url]
