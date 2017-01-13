@@ -17,7 +17,7 @@ module.exports = function uploadToGCS(plugin, config) {
       if (path.sep === "\\") {
         destinationFilePath = destinationFilePath.replace(/\\/g, "/")
       }
-      var metadata = isGzipped ? {contentEncoding:"gzip"} : {}
+      var metadata = Object.assign({}, isGzipped ? {contentEncoding:"gzip"} : {}, config.metadata);
       return bucket.upload(basePath, {
         destination:destinationFilePath,
         metadata:metadata,

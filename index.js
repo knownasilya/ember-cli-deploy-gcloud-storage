@@ -33,6 +33,7 @@ module.exports = {
         var distFiles = this.readConfig('distFiles');
         var gzippedFiles = this.readConfig('gzippedFiles');
         var filePattern = this.readConfig('filePattern');
+        var metadata = this.readConfig('metadata');
         var filesToUpload = distFiles.filter(minimatch.filter(filePattern, { matchBase: true }));
 
         this.log('uploading..');
@@ -42,7 +43,8 @@ module.exports = {
           bucketFolder: bucketFolder,
           fileBase: context.distDir,
           filePaths: filesToUpload,
-          gzippedFilePaths: gzippedFiles
+          gzippedFilePaths: gzippedFiles,
+          metadata: metadata
         };
 
         if ( projectId && credentials ) {
