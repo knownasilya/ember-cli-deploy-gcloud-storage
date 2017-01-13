@@ -47,6 +47,7 @@ ember deploy production
 - `distFiles` - Files that need to be deployed, defaults to all files in the `dist` directory.
 - `gzippedFiles` - Files that are already gzipped, hence not requiring more gzipping. This defaults to values from `ember-cli-deploy-gzip`.
 - `filePattern` - Applied to the `distFiles` via minimatch.
+- `metadata` - Hash of metadata properties to be applied to uploaded files.
 
 ## TODO
 
