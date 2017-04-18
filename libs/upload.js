@@ -1,6 +1,6 @@
 var path = require('path');
 var storage = require('@google-cloud/storage');
-var Promise = require('ember-cli/lib/ext/promise');
+var Promise = require('rsvp').Promise;
 
 
 module.exports = function uploadToGCS(plugin, config) {
