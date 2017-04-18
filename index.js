@@ -3,7 +3,7 @@
 
 var minimatch = require('minimatch');
 var BasePlugin = require('ember-cli-deploy-plugin');
-var Promise = require('ember-cli/lib/ext/promise');
+var Promise = require('rsvp').Promise;
 var upload = require('./libs/upload');
 
 module.exports = {
