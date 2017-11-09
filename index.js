@@ -44,14 +44,16 @@ module.exports = {
           fileBase: context.distDir,
           filePaths: filesToUpload,
           gzippedFilePaths: gzippedFiles,
-          metadata: metadata
+          metadata: metadata,
+          gcloud: {},
         };
 
-        if (projectId && credentials) {
-          config['gcloud'] = {
-            credentials: credentials,
-            projectId: projectId
-          };
+        if ( projectId ) {
+          config.gcloud.projectId = projectId;
+        }
+
+        if ( credentials ) {
+          config.gcloud.credentials = credentials;
         }
 
         return upload(this, config)
