@@ -47,7 +47,7 @@ module.exports = {
           metadata: metadata
         };
 
-        if ( projectId && credentials ) {
+        if (projectId && credentials) {
           config['gcloud'] = {
             credentials: credentials,
             projectId: projectId
@@ -55,18 +55,20 @@ module.exports = {
         }
 
         return upload(this, config)
-        .then(function (filesUploaded) {
-          self.log('uploaded ' + filesUploaded.length + ' files ok', { verbose: true });
-          return { filesUploaded: filesUploaded };
-        })
-        .catch(this._errorMessage.bind(this));
+          .then(function (filesUploaded) {
+            self.log('uploaded ' + filesUploaded.length + ' files ok', { verbose: true });
+            return { filesUploaded: filesUploaded };
+          })
+          .catch(this._errorMessage.bind(this));
       },
 
       _errorMessage: function(error) {
         this.log(error, { color: 'red' });
+        
         if (error) {
           this.log(error.stack, { color: 'red' });
         }
+        
         return Promise.reject(error);
       }
     });
