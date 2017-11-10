@@ -48,11 +48,11 @@ module.exports = {
           gcloud: {},
         };
 
-        if ( projectId ) {
+        if (projectId) {
           config.gcloud.projectId = projectId;
         }
 
-        if ( credentials ) {
+        if (credentials) {
           config.gcloud.credentials = credentials;
         }
 
