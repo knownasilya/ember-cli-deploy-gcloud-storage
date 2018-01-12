@@ -7,7 +7,7 @@ module.exports = function uploadToGCS(plugin, config) {
   var gcs = storage(config.gcloud);
   var bucket = gcs.bucket(config.bucket);
 
-  const chunkedFilePaths = _.chunk(config.filePaths, 40);
+  const chunkedFilePaths = _.chunk(config.filePaths, 50);
 
   return chunkedFilePaths.reduce(function (previous, chunk) {
     return previous.then(function () {
