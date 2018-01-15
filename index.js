@@ -12,6 +12,7 @@ module.exports = {
     var Plugin = BasePlugin.extend({
       name: options.name,
 
+      // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
       defaultConfig: {
         bucket: 'ember',
         filePattern: '**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2}',
