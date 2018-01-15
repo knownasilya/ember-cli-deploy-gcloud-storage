@@ -1,13 +1,13 @@
 var path = require('path');
 var storage = require('@google-cloud/storage');
 var Promise = require('rsvp').Promise;
-var _ = require('lodash');
+var chunk = require('lodash.chunk');
 
 module.exports = function uploadToGCS(plugin, config) {
   var gcs = storage(config.gcloud);
   var bucket = gcs.bucket(config.bucket);
 
-  const chunkedFilePaths = _.chunk(config.filePaths, 50);
+  const chunkedFilePaths = chunk(config.filePaths, 50);
 
   return chunkedFilePaths.reduce(function (previous, chunk) {
     return previous.then(function () {
