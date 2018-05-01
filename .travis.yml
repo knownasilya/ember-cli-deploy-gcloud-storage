@@ -25,7 +25,7 @@ env:
     - EMBER_TRY_SCENARIO=ember-lts-2.12
     - EMBER_TRY_SCENARIO=ember-lts-2.16
     - EMBER_TRY_SCENARIO=ember-lts-2.18
-    - EMBER_TRY_SCENARIO=ember-release
+    # - EMBER_TRY_SCENARIO=ember-release removing because of https://github.com/emberjs/ember.js/issues/16580
     - EMBER_TRY_SCENARIO=ember-beta
     - EMBER_TRY_SCENARIO=ember-canary
     - EMBER_TRY_SCENARIO=ember-default
