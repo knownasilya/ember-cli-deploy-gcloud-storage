@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/compare/v0.3.0...v0.4.0) (2018-05-03)
+
+
+### Features
+
+* Feature/upgrade ember ([#13](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/issues/13)) ([ef9d1a2](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/commit/ef9d1a2))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/compare/v0.2.2...v0.3.0) (2018-01-15)
 
