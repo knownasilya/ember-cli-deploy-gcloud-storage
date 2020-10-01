@@ -32,19 +32,23 @@ module.exports = function uploadToGCS(plugin, config) {
               return reject(err);
             }
 
-            file.makePublic(function (err, res) {
+            // for uniform permission buckets this fails because it tries to get/set an ACL on the object
+            if (config.makePublic) {
+              file.makePublic(function (err, res) {
+                if (err) {
+                  return reject(err);
+                }
+              });
+            }
+
+            // verify the uploaded file
+            file.download({ validation: false }, function(err, contents) {
               if (err) {
                 return reject(err);
               }
 
-              file.download({ validation: false }, function(err, contents) {
-                if (err) {
-                  return reject(err);
-                }
-
-                plugin.log('✔  ' + filePath, { verbose: true });
-                resolve(contents.toString('utf8'));
-              });
+              plugin.log('✔  ' + filePath, { verbose: true });
+              resolve(contents.toString('utf8'));
             });
           });
         });
