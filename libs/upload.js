@@ -1,11 +1,11 @@
 var path = require('path');
-var storage = require('@google-cloud/storage');
+var { Storage } = require('@google-cloud/storage');
 var Promise = require('rsvp').Promise;
 var chunk = require('lodash.chunk');
 
 module.exports = function uploadToGCS(plugin, config) {
-  var gcs = storage(config.gcloud);
-  var bucket = gcs.bucket(config.bucket);
+  const storage = new Storage(config.gcloud);
+  const bucket = storage.bucket(config.bucket);
 
   const chunkedFilePaths = chunk(config.filePaths, 50);
 
@@ -22,6 +22,7 @@ module.exports = function uploadToGCS(plugin, config) {
             destinationFilePath = destinationFilePath.replace(/\\/g, "/")
           }
           var metadata = Object.assign({}, isGzipped ? {contentEncoding:"gzip"} : {}, config.metadata);
+
           return bucket.upload(basePath, {
             destination:destinationFilePath,
             metadata:metadata,
@@ -31,19 +32,23 @@ module.exports = function uploadToGCS(plugin, config) {
               return reject(err);
             }
 
-            file.makePublic(function (err, res) {
+            // for uniform permission buckets this fails because it tries to get/set an ACL on the object
+            if (config.makePublic) {
+              file.makePublic(function (err, res) {
+                if (err) {
+                  return reject(err);
+                }
+              });
+            }
+
+            // verify the uploaded file
+            file.download({ validation: false }, function(err, contents) {
               if (err) {
                 return reject(err);
               }
 
-              file.download({ validation: false }, function(err, contents) {
-                if (err) {
-                  return reject(err);
-                }
-
-                plugin.log('✔  ' + filePath, { verbose: true });
-                resolve(contents.toString('utf8'));
-              });
+              plugin.log('✔  ' + filePath, { verbose: true });
+              resolve(contents.toString('utf8'));
             });
           });
         });

@@ -27,6 +27,7 @@ module.exports = {
       upload: function(context) {
         var self = this;
         var credentials = this.readConfig('credentials');
+        var keyFilename = this.readConfig('keyFilename');
         var projectId = this.readConfig('projectId');
         var bucket = this.readConfig('bucket');
         var bucketFolder = this.readConfig('bucketFolder');
@@ -52,7 +53,9 @@ module.exports = {
           config.gcloud.projectId = projectId;
         }
 
-        if (credentials) {
+        if (keyFilename) {
+          config.gcloud.keyFilename = keyFilename;
+        } else if (credentials) {
           config.gcloud.credentials = credentials;
         }
 
@@ -66,11 +69,11 @@ module.exports = {
 
       _errorMessage: function(error) {
         this.log(error, { color: 'red' });
-        
+
         if (error) {
           this.log(error.stack, { color: 'red' });
         }
-        
+
         return Promise.reject(error);
       }
     });
