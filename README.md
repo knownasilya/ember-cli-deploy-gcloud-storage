@@ -7,6 +7,12 @@ An Ember-CLI-Deploy plugin to upload assets to Google Cloud Storage (can also be
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]  
 [![Ember-CLI Deploy Version][ember-cli-deploy-badge]][ember-cli-deploy-url]
 
+## Compatibility
+
+- Ember.js v3.16 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
+
 ## Quick Start
 
 To get up and running quickly, do the following:
@@ -22,13 +28,13 @@ ember install ember-cli-deploy-gcloud-storage
 - Place the following configuration into `config/deploy.js`
 
 ```javascript
-ENV['gcloud-storage'] = {
+ENV["gcloud-storage"] = {
   credentials: {
-    'private_key': '<your-private-key>',
-    'client_email': '<your-client-email>',
+    private_key: "<your-private-key>",
+    client_email: "<your-client-email>",
   },
-  projectId: '<your-gcloud-project-id>',
-  bucket: '<your-storage-bucket>'
+  projectId: "<your-gcloud-project-id>",
+  bucket: "<your-storage-bucket>",
 };
 ```
 
@@ -48,6 +54,7 @@ ember deploy production
 - `gzippedFiles` - Files that are already gzipped, hence not requiring more gzipping. This defaults to values from `ember-cli-deploy-gzip`.
 - `filePattern` - Applied to the `distFiles` via minimatch.
 - `metadata` - Hash of metadata properties to be applied to uploaded files.
+- `makePublic` - Boolean, if set to `true` will make the uploaded file public. Default is `false`.
 
 ## TODO
 
@@ -58,8 +65,9 @@ ember deploy production
 
 ## Contributing
 
-See [CONTRIBUTING.md].
+# See [CONTRIBUTING.md].
 
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 [npm-badge-img]: https://badge.fury.io/js/ember-cli-deploy-gcloud-storage.svg
 [npm-badge-link]: http://badge.fury.io/js/ember-cli-deploy-gcloud-storage
@@ -71,4 +79,4 @@ See [CONTRIBUTING.md].
 [ember-cli-deploy-url]: http://ember-cli-deploy.github.io/ember-cli-deploy-version-badges/
 [ember-cli-deploy]: https://github.com/ember-cli-deploy/ember-cli-deploy
 [ember-cli-deploy-build]: https://github.com/ember-cli-deploy/ember-cli-deploy-build
-[CONTRIBUTING.md]: CONTRIBUTING.md
+[contributing.md]: CONTRIBUTING.md
