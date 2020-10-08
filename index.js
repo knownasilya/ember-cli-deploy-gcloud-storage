@@ -36,6 +36,7 @@ module.exports = {
         var gzippedFiles = this.readConfig('gzippedFiles');
         var filePattern = this.readConfig('filePattern');
         var metadata = this.readConfig('metadata');
+        var makePublic = this.readConfig('makePublic');
         var filesToUpload = distFiles.filter(
           minimatch.filter(filePattern, { matchBase: true })
         );
@@ -43,12 +44,13 @@ module.exports = {
         this.log('uploading..');
 
         var config = {
-          bucket: bucket,
-          bucketFolder: bucketFolder,
+          bucket,
+          bucketFolder,
           fileBase: context.distDir,
           filePaths: filesToUpload,
           gzippedFilePaths: gzippedFiles,
-          metadata: metadata,
+          metadata,
+          makePublic,
           gcloud: {},
         };
 
@@ -67,7 +69,7 @@ module.exports = {
             self.log('uploaded ' + filesUploaded.length + ' files ok', {
               verbose: true,
             });
-            return { filesUploaded: filesUploaded };
+            return { filesUploaded };
           })
           .catch(this._errorMessage.bind(this));
       },

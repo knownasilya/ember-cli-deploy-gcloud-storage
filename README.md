@@ -28,13 +28,13 @@ ember install ember-cli-deploy-gcloud-storage
 - Place the following configuration into `config/deploy.js`
 
 ```javascript
-ENV["gcloud-storage"] = {
+ENV['gcloud-storage'] = {
   credentials: {
-    private_key: "<your-private-key>",
-    client_email: "<your-client-email>",
+    private_key: '<your-private-key>',
+    client_email: '<your-client-email>',
   },
-  projectId: "<your-gcloud-project-id>",
-  bucket: "<your-storage-bucket>",
+  projectId: '<your-gcloud-project-id>',
+  bucket: '<your-storage-bucket>',
 };
 ```
 
@@ -47,6 +47,7 @@ ember deploy production
 ## Configuration
 
 - `credentials` - GCP credentials object, `{ private_key, client_email }`, required (can be specified with GCP envs/config).
+- `keyFilename` - Alternative configuration to the `credentials` option. Specify the path to the key file downloaded for service account.
 - `projectId` - Your GCP project id, required (can be specified with GCP envs, `GCLOUD_PROJECT=<projectId> ember deploy`).
 - `bucket` - A bucket in GCS to store your files, required.
 - `bucketFolder` - A folder inside the bucket to place your files, optional.
