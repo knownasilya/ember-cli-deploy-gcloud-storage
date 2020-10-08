@@ -1,6 +1,33 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.0.0](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/compare/v0.4.0...v1.0.0) (2020-10-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop Node < 10 and updates storage apis
+
+* bump google-cloud/storage. support keyFilename
+
+* Add makePublic flag to support uniform storage permissions
+
+* update minimum node version
+
+* update minimum node version
+
+* fix mistake
+
+### Features
+
+* Skip make public for uniform storage permissions ([#14](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/issues/14)) ([31c6e37](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/commit/31c6e37e957c05ea31013a54229750927b1c59a6))
+
+
+### Bug Fixes
+
+* update some deps ([57c6780](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/commit/57c6780d1ac2ffbc8c0c37cfc9db7a45a1f5ff62))
+* v3.1.3...v3.21.2 ([53a8b8a](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/commit/53a8b8ac1261d3c9db82a504842a54327729f260))
 
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/compare/v0.3.0...v0.4.0) (2018-05-03)
