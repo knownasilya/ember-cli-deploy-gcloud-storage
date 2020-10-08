@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-var minimatch = require("minimatch");
-var BasePlugin = require("ember-cli-deploy-plugin");
-var Promise = require("rsvp").Promise;
-var upload = require("./libs/upload");
+var minimatch = require('minimatch');
+var BasePlugin = require('ember-cli-deploy-plugin');
+var Promise = require('rsvp').Promise;
+var upload = require('./libs/upload');
 
 module.exports = {
-  name: require("./package").name,
+  name: require('./package').name,
 
   createDeployPlugin: function (options) {
     var Plugin = BasePlugin.extend({
@@ -14,9 +14,9 @@ module.exports = {
 
       // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
       defaultConfig: {
-        bucket: "ember",
+        bucket: 'ember',
         filePattern:
-          "**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2}",
+          '**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2}',
         distFiles: function (context) {
           return context.distFiles || [];
         },
@@ -27,20 +27,20 @@ module.exports = {
 
       upload: function (context) {
         var self = this;
-        var credentials = this.readConfig("credentials");
-        var keyFilename = this.readConfig("keyFilename");
-        var projectId = this.readConfig("projectId");
-        var bucket = this.readConfig("bucket");
-        var bucketFolder = this.readConfig("bucketFolder");
-        var distFiles = this.readConfig("distFiles");
-        var gzippedFiles = this.readConfig("gzippedFiles");
-        var filePattern = this.readConfig("filePattern");
-        var metadata = this.readConfig("metadata");
+        var credentials = this.readConfig('credentials');
+        var keyFilename = this.readConfig('keyFilename');
+        var projectId = this.readConfig('projectId');
+        var bucket = this.readConfig('bucket');
+        var bucketFolder = this.readConfig('bucketFolder');
+        var distFiles = this.readConfig('distFiles');
+        var gzippedFiles = this.readConfig('gzippedFiles');
+        var filePattern = this.readConfig('filePattern');
+        var metadata = this.readConfig('metadata');
         var filesToUpload = distFiles.filter(
           minimatch.filter(filePattern, { matchBase: true })
         );
 
-        this.log("uploading..");
+        this.log('uploading..');
 
         var config = {
           bucket: bucket,
@@ -64,7 +64,7 @@ module.exports = {
 
         return upload(this, config)
           .then(function (filesUploaded) {
-            self.log("uploaded " + filesUploaded.length + " files ok", {
+            self.log('uploaded ' + filesUploaded.length + ' files ok', {
               verbose: true,
             });
             return { filesUploaded: filesUploaded };
@@ -73,10 +73,10 @@ module.exports = {
       },
 
       _errorMessage: function (error) {
-        this.log(error, { color: "red" });
+        this.log(error, { color: 'red' });
 
         if (error) {
-          this.log(error.stack, { color: "red" });
+          this.log(error.stack, { color: 'red' });
         }
 
         return Promise.reject(error);
