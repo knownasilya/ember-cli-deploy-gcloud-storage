@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/compare/v1.0.0...v1.0.1) (2020-10-08)
+
+
+### Bug Fixes
+
+* actually pass down makePublic option ([b3e3846](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/commit/b3e38468b088eaa737abd83ca364e9a32e1c45e1))
+
 ## [1.0.0](https://github.com/knownasilya/ember-cli-deploy-gcloud-storage/compare/v0.4.0...v1.0.0) (2020-10-08)
 
 
