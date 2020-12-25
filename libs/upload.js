@@ -44,7 +44,7 @@ module.exports = function uploadToGCS(plugin, config) {
 
                 // for uniform permission buckets this fails because it tries to get/set an ACL on the object
                 if (config.makePublic) {
-                  file.makePublic(function (err, res) {
+                  file.makePublic(function (err) {
                     if (err) {
                       return reject(err);
                     }
